@@ -1,63 +1,44 @@
 import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Navigation = () => {
   return (
-    <div>
-      <Nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container-fluid">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo03"
-            aria-controls="navbarTogglerDemo03"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <a className="navbar-brand" href="#">
-            AkumaDrive
-          </a>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Browse
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Random Generator
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="./public/signup.html">
-                  Sign in
-                </a>
-              </li>
-            </ul>
-            {/* <form className="d-flex" id="search-bar">
-              <input
-                className="form-control me-2"
+    <>
+      <Navbar bg="dark" variant={"dark"} expand="lg">
+        <Container>
+          <Navbar.Brand href="#">AkumaDrive</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav
+              className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: "100px" }}
+              navbarScroll
+            >
+              <Nav.Link href="#action1">Home</Nav.Link>
+              <Nav.Link href="#action2">Browse</Nav.Link>
+              <Nav.Link href="#action3">Recommendations</Nav.Link>
+              <Nav.Link href="#action4">Sign in</Nav.Link>
+              <Nav.Link href="#" disabled>
+                Link
+              </Nav.Link>
+            </Nav>
+            <Form className="d-flex">
+              <Form.Control
                 type="search"
                 placeholder="Search"
+                className="me-2"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-primary" type="submit">
-                Search
-              </button>
-            </form> */}
-          </div>
-        </div>
-      </Nav>
-    </div>
+              <Button variant="outline-success">Search</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </>
   );
 };
 

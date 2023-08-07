@@ -1,6 +1,6 @@
 import "./App.css";
 import Navigation from "./components/navigation";
-import Hero from "./components/Hero";
+import Hero from "./components/Hero/Hero";
 
 function App() {
   return (

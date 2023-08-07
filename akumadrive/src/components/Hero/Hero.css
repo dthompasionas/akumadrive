@@ -1,0 +1,54 @@
+/*------ hero image ------- */
+
+.carousel img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.7);
+}
+
+.carousel-item {
+  height: 650px;
+}
+
+.carousel .carousel-indicators button {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+/*----- hero captions ------ */
+
+.carousel .carousel-caption {
+  margin-bottom: 50px;
+  text-align: start;
+}
+
+.carousel .carousel-caption h1 {
+  font-size: 60px;
+}
+
+.carousel .carousel-caption p {
+  font-size: 20px;
+}
+
+.carousel .carousel-caption button {
+  width: 200px;
+  height: 50px;
+  font-size: 22px;
+}
+
+@media screen and (max-width: 480px) {
+  .carousel .carousel-caption {
+    margin-bottom: 70px;
+    text-align: start;
+  }
+
+  .carousel .carousel-caption h1 {
+    font-size: 35px;
+  }
+
+  .carousel .carousel-caption p {
+    font-size: 18px;
+  }
+}
