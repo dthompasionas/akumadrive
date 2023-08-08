@@ -2,6 +2,7 @@ import Carousel from "react-bootstrap/Carousel";
 import chainsawMan from "../../assets/images/chainsaw-man.jpg";
 import slime from "../../assets/images/slime.jpg";
 import onePiece from "../../assets/images/straw_hat_pirates.jpg";
+import Button from "react-bootstrap/esm/Button";
 import "./Hero.css";
 
 function Hero() {
@@ -19,7 +20,9 @@ function Hero() {
             <p>
               Want a random anime recommendation based on the genre you pick?
             </p>
-            <button className="btn btn-primary">Generate</button>
+            <Button href="/recommendations" variant="primary">
+              Generate
+            </Button>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -31,7 +34,9 @@ function Hero() {
           <Carousel.Caption className="mt-8">
             <h1>Browse Anime</h1>
             <p>Browse our wide selection of anime.</p>
-            <button className="btn btn-primary">Browse</button>
+            <Button href="/browse" variant="primary">
+              Browse
+            </Button>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -42,7 +47,9 @@ function Hero() {
               Sign up and make a personal list of anime and manga you watched or
               read.
             </p>
-            <button className="btn btn-primary">Sign up</button>
+            <Button href="/sign_up" variant="primary">
+              Sign up
+            </Button>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
