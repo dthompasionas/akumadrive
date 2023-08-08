@@ -1,9 +1,4 @@
-/* importing font */
-@font-face {
-  font-family: "permanentMarker";
-  src: url(../../assets/fonts/PermanentMarker-Regular.ttf);
-}
-
+/* Navbar title */
 .navbar .navbar-brand {
   font-family: "permanentMarker";
   font-size: 30px;

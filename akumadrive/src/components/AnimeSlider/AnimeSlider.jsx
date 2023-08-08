@@ -19,6 +19,7 @@ import shieldHero from "../../assets/images/rising-shield-hero.jpg";
 
 import Container from "react-bootstrap/esm/Container";
 import "./AnimeSlider.css";
+import "./AnimeSlider.js";
 
 const AnimeSlider = () => {
   return (

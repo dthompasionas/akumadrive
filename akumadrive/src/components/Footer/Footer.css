@@ -12,6 +12,7 @@ footer {
 }
 
 .footer-content h3 {
+  font-family: "permanentMarker";
 }
 
 .footer-content p {
@@ -35,4 +36,16 @@ footer .footer-bottom p {
 .footer-bottom span {
   text-transform: uppercase;
   opacity: 0.4;
+}
+
+@media screen and (max-width: 478px) {
+  footer {
+    padding-top: 15px;
+  }
+
+  .footer-content p {
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+  }
 }
