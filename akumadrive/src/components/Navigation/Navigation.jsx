@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 import "./Navigation.css";
 
 const Navigation = () => {
@@ -11,7 +11,9 @@ const Navigation = () => {
     <>
       <Navbar bg="dark" variant={"dark"} expand="lg">
         <Container>
-          <Navbar.Brand href="/home">AkumaDrive</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/home">
+            AkumaDrive
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -19,14 +21,22 @@ const Navigation = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/home">Home</Nav.Link>
-              <Nav.Link href="browse">Browse</Nav.Link>
-              <Nav.Link href="recommendations">Recommendations</Nav.Link>
-              <Nav.Link href="sign_in">Sign in</Nav.Link>
-              <Nav.Link href="profile" disabled>
+              <Nav.Link as={Link} to="/home">
+                Home
+              </Nav.Link>
+              <Nav.Link as={Link} to="/browse">
+                Browse
+              </Nav.Link>
+              <Nav.Link as={Link} to="/recommendations">
+                Recommendations
+              </Nav.Link>
+              <Nav.Link as={Link} to="/sign_in">
+                Sign in
+              </Nav.Link>
+              <Nav.Link as={Link} to="/profile" disabled>
                 Link
               </Nav.Link>
-              <Nav.Link href="sign_up" disabled>
+              <Nav.Link as={Link} to="/sign_up" disabled>
                 Link
               </Nav.Link>
             </Nav>
