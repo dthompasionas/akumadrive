@@ -1,15 +1,14 @@
-import Navigation from "../../components/Navigation/Navigation";
 import Hero from "../../components/Hero/Hero";
 import AnimeSlider from "../../components/AnimeSlider/AnimeSlider";
+import MainLayout from "../../layout/MainLayout";
 import "./Home.css";
 
 const Home = () => {
   return (
-    <>
-      <Navigation />
+    <MainLayout>
       <Hero />
       <AnimeSlider />
-    </>
+    </MainLayout>
   );
 };
 

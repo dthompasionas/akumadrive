@@ -1,12 +1,11 @@
-import Navigation from "../../components/Navigation/Navigation";
+import MainLayout from "../../layout/MainLayout";
 import "./Sign_in.css";
 
 const Sign_in = () => {
   return (
-    <>
-      <Navigation />
+    <MainLayout>
       <div>Sign_in</div>
-    </>
+    </MainLayout>
   );
 };
 

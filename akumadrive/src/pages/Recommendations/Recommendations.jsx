@@ -1,12 +1,11 @@
-import Navigation from "../../components/Navigation/Navigation";
+import MainLayout from "../../layout/MainLayout";
 import "./Recommendations.css";
 
 const Recommendations = () => {
   return (
-    <>
-      <Navigation />
+    <MainLayout>
       <div>Recommendations</div>
-    </>
+    </MainLayout>
   );
 };
 

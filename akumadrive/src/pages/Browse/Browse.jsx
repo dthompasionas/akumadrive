@@ -1,11 +1,10 @@
-import Navigation from "../../components/Navigation/Navigation";
+import MainLayout from "../../layout/MainLayout";
 
 const Browse = () => {
   return (
-    <>
-      <Navigation />
+    <MainLayout>
       <div>Browse</div>
-    </>
+    </MainLayout>
   );
 };
 
