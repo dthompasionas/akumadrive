@@ -20,6 +20,8 @@ function App() {
           <Route path="/sign_in" element={<Sign_in />} />
           <Route path="/sign_up" element={<Sign_up />} />
           <Route path="/profile" element={<Profile />} />
+
+          {/* error 404 page */}
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>

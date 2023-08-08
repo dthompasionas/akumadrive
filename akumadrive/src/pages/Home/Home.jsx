@@ -1,5 +1,6 @@
 import Navigation from "../../components/Navigation/Navigation";
 import Hero from "../../components/Hero/Hero";
+import AnimeSlider from "../../components/AnimeSlider/AnimeSlider";
 import "./Home.css";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
     <>
       <Navigation />
       <Hero />
+      <AnimeSlider />
     </>
   );
 };
