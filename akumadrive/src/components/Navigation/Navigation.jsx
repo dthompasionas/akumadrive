@@ -5,8 +5,12 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import "./Navigation.css";
+import { useState } from "react";
 
 const Navigation = () => {
+  const [newItem, setNewItem] = useState("");
+  console.log(newItem);
+
   return (
     <>
       <Navbar bg="dark" variant={"dark"} expand="lg">
@@ -42,6 +46,8 @@ const Navigation = () => {
             </Nav>
             <Form className="d-flex">
               <Form.Control
+                value={newItem}
+                onChange={(e) => setNewItem(e.target.value)}
                 type="search"
                 placeholder="Search"
                 className="me-2"

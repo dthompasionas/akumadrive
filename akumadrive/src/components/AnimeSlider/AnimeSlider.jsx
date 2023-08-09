@@ -5,9 +5,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 // import required modules
-import { Pagination } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 
 // import card from bootstrap
 import Card from "react-bootstrap/Card";
@@ -19,20 +20,49 @@ import shieldHero from "../../assets/images/rising-shield-hero.jpg";
 
 import Container from "react-bootstrap/esm/Container";
 import "./AnimeSlider.css";
-import "./AnimeSlider.js";
 
 const AnimeSlider = () => {
+  // fetch("https://jsonplaceholder.typicode.com/photos")
+  //   .then((data) => {
+  //     return data.json();
+  //   })
+  //   .then((jsondata) => {
+  //     let key;
+  //     // using map method, get all URL
+  //     jsondata.map((val) => {
+  //       console.log(val);
+  //       key = val.id;
+  //       let img = document.createElement("img");
+  //       img.src = `https://picsum.photos/200/300?random={key}`;
+  //       swiperslide.appendChild(img);
+  //     });
+  //   });
   return (
     <>
       <Container fluid className="swiper-container">
         <Swiper
           slidesPerView={6}
           spaceBetween={30}
-          centeredSlides={true}
+          centeredSlides={false}
           pagination={{
             clickable: true,
           }}
-          modules={[Pagination]}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 50,
+            },
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
           className="mySwiper"
         >
           <SwiperSlide>
