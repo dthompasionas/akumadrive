@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation, Keyboard } from "swiper/modules";
 
 // import card from bootstrap
 import Card from "react-bootstrap/Card";
@@ -41,11 +41,14 @@ const AnimeSlider = () => {
     <>
       <Container fluid className="swiper-container">
         <Swiper
-          slidesPerView={6}
+          slidesPerView={1.5}
           spaceBetween={30}
-          centeredSlides={false}
+          centeredSlides={true}
           pagination={{
             clickable: true,
+          }}
+          keyboard={{
+            enabled: true,
           }}
           breakpoints={{
             640: {
@@ -53,16 +56,16 @@ const AnimeSlider = () => {
               spaceBetween: 20,
             },
             768: {
-              slidesPerView: 4,
-              spaceBetween: 40,
+              slidesPerView: 3,
+              spaceBetween: 25,
             },
             1024: {
               slidesPerView: 5,
-              spaceBetween: 50,
+              spaceBetween: 35,
             },
           }}
           navigation={true}
-          modules={[Pagination, Navigation]}
+          modules={[Pagination, Navigation, Keyboard]}
           className="mySwiper"
         >
           <SwiperSlide>

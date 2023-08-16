@@ -30,3 +30,16 @@
   object-fit: cover;
   border-radius: 16px;
 }
+
+@media screen and (max-width: 478px) {
+  .swiper-slide {
+    width: auto;
+  }
+
+  .swiper-button-prev {
+    display: none;
+  }
+  .swiper-button-next {
+    display: none;
+  }
+}
