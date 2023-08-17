@@ -8,6 +8,23 @@ import Sign_up from "./pages/Sign-up/Sign_up";
 import Profile from "./pages/Profile/Profile";
 import NoPage from "./pages/NoPage/NoPage";
 
+// const url = "https://anime-db.p.rapidapi.com/anime?page=1&size=10";
+// const options = {
+//   method: "GET",
+//   headers: {
+//     "X-RapidAPI-Key": "616199d000msh3bacd729db7065bp112f92jsnaa522a896bec",
+//     "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
+//   },
+// };
+
+// try {
+//   const response = await fetch(url, options);
+//   const result = await response.text();
+//   console.log(result);
+// } catch (error) {
+//   console.error(error);
+// }
+
 function App() {
   return (
     <>

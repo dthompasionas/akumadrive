@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+
 // import swiper JS
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -21,22 +23,52 @@ import shieldHero from "../../assets/images/rising-shield-hero.jpg";
 import Container from "react-bootstrap/esm/Container";
 import "./AnimeSlider.css";
 
+// componentDidMount() {
+//   fetch("https://anime-db.p.rapidapi.com/anime?page=1&size=10", {
+//     method: "GET",
+//     headers: {
+//       "X-RapidAPI-Key": "616199d000msh3bacd729db7065bp112f92jsnaa522a896bec",
+//       "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
+//     },
+//   })
+//     .then((res) => res.json())
+//     .then((res) => {
+//       console.log(res);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// }
+
 const AnimeSlider = () => {
-  // fetch("https://jsonplaceholder.typicode.com/photos")
-  //   .then((data) => {
-  //     return data.json();
-  //   })
-  //   .then((jsondata) => {
-  //     let key;
-  //     // using map method, get all URL
-  //     jsondata.map((val) => {
-  //       console.log(val);
-  //       key = val.id;
-  //       let img = document.createElement("img");
-  //       img.src = `https://picsum.photos/200/300?random={key}`;
-  //       swiperslide.appendChild(img);
-  //     });
-  //   });
+  // set state
+  const [info, setInfo] = useState({ data: [], meta: {} });
+
+  useEffect(() => {
+    fetch(
+      "https://anime-db.p.rapidapi.com/anime?page=1&size=10&search=Fullmetal&genres=Fantasy%2CDrama&sortBy=ranking",
+      {
+        method: "GET",
+        headers: {
+          "X-RapidAPI-Key":
+            "616199d000msh3bacd729db7065bp112f92jsnaa522a896bec",
+          "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
+        },
+      }
+    )
+      .then((res) => res.json())
+      // .then((data) => setInfo(data))
+      .then((data) => {
+        setInfo(data);
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(info);
+
   return (
     <>
       <Container fluid className="swiper-container">
@@ -68,41 +100,26 @@ const AnimeSlider = () => {
           modules={[Pagination, Navigation, Keyboard]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <Card style={{ width: "100%", height: "100%" }}>
-              <Card.Body>
-                {/* <img src={devilsPartTime} alt="Devils a part timer image" /> */}
-                <Card.Title>Card Title</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">
-                  Card Subtitle
-                </Card.Subtitle>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
-              </Card.Body>
-            </Card>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={foodWars} alt="Devils a part timer image" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={shieldHero} alt="Devils a part timer image" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={devilsPartTime} alt="Devils a part timer image" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={foodWars} alt="Devils a part timer image" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={shieldHero} alt="Devils a part timer image" />
-          </SwiperSlide>
-          <SwiperSlide>Slide 7</SwiperSlide>
-          <SwiperSlide>Slide 8</SwiperSlide>
-          <SwiperSlide>Slide 9</SwiperSlide>
+          {info.data &&
+            info.data.map((imageObject, index) => (
+              <SwiperSlide key={index}>
+                <Card style={{ width: "100%", height: "100%" }}>
+                  <Card.Body>
+                    <img
+                      src={imageObject.image}
+                      alt={`Anime ${index}`}
+                      style={{ maxWidth: "100%" }}
+                    />
+                    <Card.Title>{imageObject.title}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">
+                      {imageObject.subtitle}
+                    </Card.Subtitle>
+                    <Card.Text>{imageObject.description}</Card.Text>
+                    {/* Other card content */}
+                  </Card.Body>
+                </Card>
+              </SwiperSlide>
+            ))}
         </Swiper>
       </Container>
     </>
