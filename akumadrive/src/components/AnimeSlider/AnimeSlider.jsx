@@ -16,29 +16,12 @@ import { Pagination, Navigation, Keyboard } from "swiper/modules";
 import Card from "react-bootstrap/Card";
 
 // slider test images -----------
-import devilsPartTime from "../../assets/images/devils-a-part-timer.jpg";
-import foodWars from "../../assets/images/Food-Wars-Shokugeki-no-Soma.jpg";
-import shieldHero from "../../assets/images/rising-shield-hero.jpg";
+// import devilsPartTime from "../../assets/images/devils-a-part-timer.jpg";
+// import foodWars from "../../assets/images/Food-Wars-Shokugeki-no-Soma.jpg";
+// import shieldHero from "../../assets/images/rising-shield-hero.jpg";
 
 import Container from "react-bootstrap/esm/Container";
 import "./AnimeSlider.css";
-
-// componentDidMount() {
-//   fetch("https://anime-db.p.rapidapi.com/anime?page=1&size=10", {
-//     method: "GET",
-//     headers: {
-//       "X-RapidAPI-Key": "616199d000msh3bacd729db7065bp112f92jsnaa522a896bec",
-//       "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
-//     },
-//   })
-//     .then((res) => res.json())
-//     .then((res) => {
-//       console.log(res);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// }
 
 const AnimeSlider = () => {
   // set state
@@ -92,7 +75,7 @@ const AnimeSlider = () => {
               spaceBetween: 25,
             },
             1024: {
-              slidesPerView: 5,
+              slidesPerView: 6,
               spaceBetween: 35,
             },
           }}
@@ -100,24 +83,21 @@ const AnimeSlider = () => {
           modules={[Pagination, Navigation, Keyboard]}
           className="mySwiper"
         >
+          {/* creates the cards and adds data from anime db */}
           {info.data &&
             info.data.map((imageObject, index) => (
               <SwiperSlide key={index}>
                 <Card style={{ width: "100%", height: "100%" }}>
+                  <img src={imageObject.image} alt={`Anime ${index}`} />
                   <Card.Body>
-                    <img
-                      src={imageObject.image}
-                      alt={`Anime ${index}`}
-                      style={{ maxWidth: "100%" }}
-                    />
                     <Card.Title>{imageObject.title}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">
-                      {imageObject.subtitle}
-                    </Card.Subtitle>
-                    <Card.Text>{imageObject.description}</Card.Text>
-                    {/* Other card content */}
+                    <Card.Text>{imageObject.synopsis}</Card.Text>
+                    <label>{imageObject.genres}</label>
                   </Card.Body>
                 </Card>
+                <Card.Title className="outer-title">
+                  {imageObject.title}
+                </Card.Title>
               </SwiperSlide>
             ))}
         </Swiper>

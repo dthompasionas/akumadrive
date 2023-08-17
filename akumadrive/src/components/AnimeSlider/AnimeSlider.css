@@ -1,26 +1,89 @@
 .swiper-container {
-  height: 360px;
   margin-top: 50px;
 }
 
 .swiper {
   width: 100%;
   height: 100%;
+  padding: 40px 0;
 }
 
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: orange;
-  border-radius: 25px;
+  border-radius: 16px;
   /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .swiper-slide:hover {
   cursor: pointer;
+}
+
+.swiper-slide .card {
+  height: 350px !important;
+  border: none;
+  overflow: hidden;
+  position: relative;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 16px;
+}
+
+/* bottom title */
+.swiper-slide .outer-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 15px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.swiper-slide:hover .outer-title {
+  color: rgba(52, 52, 247, 0.856);
+}
+
+.swiper-slide .card-body {
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  bottom: -100%;
+  right: 0;
+  left: 0;
+  position: absolute;
+  background: #929292ab;
+  /* backdrop-filter: blur(2px); */
+  color: #fff;
+  transition: 0.5s ease;
+  border-radius: 16px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.swiper-slide .card:hover .card-body {
+  bottom: 0;
+}
+
+/* inner card */
+.swiper-slide .card .card-title {
+  text-transform: capitalize;
+  font-size: 22px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.swiper-slide .card-text {
+  line-height: 25px;
+  margin: 25px 0;
+  height: 150px;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .swiper-slide img {
