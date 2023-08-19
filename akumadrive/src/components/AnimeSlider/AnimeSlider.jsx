@@ -10,16 +10,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Pagination, Navigation, Keyboard } from "swiper/modules";
+import { Pagination, Navigation, Keyboard, FreeMode } from "swiper/modules";
 
 // import card from bootstrap
 import Card from "react-bootstrap/Card";
-
-// slider test images -----------
-// import devilsPartTime from "../../assets/images/devils-a-part-timer.jpg";
-// import foodWars from "../../assets/images/Food-Wars-Shokugeki-no-Soma.jpg";
-// import shieldHero from "../../assets/images/rising-shield-hero.jpg";
-
 import Container from "react-bootstrap/esm/Container";
 import "./AnimeSlider.css";
 
@@ -28,12 +22,8 @@ const AnimeSlider = () => {
   const [info, setInfo] = useState([]);
 
   useEffect(() => {
-    fetch("https://api.jikan.moe/v4/anime?filter=bypopularity", {
+    fetch("https://api.jikan.moe/v4/top/anime", {
       method: "GET",
-      // headers: {
-      //   "X-RapidAPI-Key": "616199d000msh3bacd729db7065bp112f92jsnaa522a896bec",
-      //   "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
-      // },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -56,12 +46,18 @@ const AnimeSlider = () => {
             slidesPerView={1.5}
             spaceBetween={30}
             centeredSlides={true}
+            grabCursor={true}
             pagination={{
               clickable: true,
+              dynamicBullets: true,
             }}
             keyboard={{
               enabled: true,
             }}
+            // freeMode={{
+            //   enabled: true,
+            //   sticky: true,
+            // }}
             breakpoints={{
               640: {
                 slidesPerView: 2,
@@ -77,11 +73,11 @@ const AnimeSlider = () => {
               },
             }}
             navigation={true}
-            modules={[Pagination, Navigation, Keyboard]}
+            modules={[Pagination, Navigation, Keyboard, FreeMode]}
             className="mySwiper"
           >
             {/* creates the cards and adds data from anime db */}
-            {info.map((animeData, index) => (
+            {info.slice(0, 25).map((animeData, index) => (
               <SwiperSlide key={index}>
                 <Card style={{ width: "100%", height: "100%" }}>
                   <img

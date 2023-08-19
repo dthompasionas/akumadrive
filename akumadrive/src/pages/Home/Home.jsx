@@ -7,7 +7,9 @@ const Home = () => {
   return (
     <MainLayout>
       <Hero />
-
+      <div className="container popular-title">
+        <h2>Popular</h2>
+      </div>
       <AnimeSlider />
     </MainLayout>
   );
