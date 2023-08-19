@@ -18,10 +18,6 @@
   flex-direction: column;
 }
 
-.swiper-slide:hover {
-  cursor: pointer;
-}
-
 .swiper-slide .card {
   height: 350px !important;
   border: none;
@@ -47,7 +43,7 @@
 }
 
 .swiper-slide .card-body {
-  padding: 30px;
+  padding: 22px;
   width: 100%;
   height: 100%;
   bottom: -100%;
@@ -55,18 +51,16 @@
   left: 0;
   position: absolute;
   background: #929292ab;
-  /* backdrop-filter: blur(2px); */
   color: #fff;
   transition: 0.5s ease;
   border-radius: 16px;
   background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.swiper-slide .card:hover .card-body {
-  bottom: 0;
-}
-
-/* inner card */
+/* inner card title*/
 .swiper-slide .card .card-title {
   text-transform: capitalize;
   font-size: 22px;
@@ -77,23 +71,56 @@
 }
 
 .swiper-slide .card-text {
-  line-height: 25px;
-  margin: 25px 0;
-  height: 150px;
+  line-height: 20px;
+  margin: 20px 0;
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  position: relative;
+}
+
+.genre {
+  margin-top: 10px;
+  position: absolute;
+  bottom: 14px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.genre span {
+  margin: 3px;
+  background: rgb(247, 185, 15);
+  border-radius: 10px;
+  font-size: 11px;
+  /* text-shadow: 0 1px 0 black; */
+  padding: 7px;
+  white-space: nowrap; /* Prevent genres from wrapping to the next line */
+  font-weight: 700;
 }
 
 .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
+  object-position: center;
   object-fit: cover;
   border-radius: 16px;
 }
 
+/* PC/laptop screens */
+@media screen and (min-width: 1280px) {
+  .swiper-slide:hover {
+    cursor: pointer;
+  }
+
+  .swiper-slide .card:hover .card-body {
+    bottom: 0;
+  }
+}
+
+/* mobile device */
 @media screen and (max-width: 478px) {
   .swiper-slide {
     width: auto;
@@ -104,5 +131,13 @@
   }
   .swiper-button-next {
     display: none;
+  }
+
+  .swiper-slide .card-body {
+    padding: 15px;
+  }
+
+  .swiper-slide .card .card-title {
+    font-size: 18px;
   }
 }

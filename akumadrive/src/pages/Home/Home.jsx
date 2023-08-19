@@ -7,6 +7,7 @@ const Home = () => {
   return (
     <MainLayout>
       <Hero />
+
       <AnimeSlider />
     </MainLayout>
   );

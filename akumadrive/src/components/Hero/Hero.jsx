@@ -15,6 +15,7 @@ function Hero() {
             className="d-block h-500px w-100"
             src={chainsawMan}
             alt="Chainsaw Man image"
+            loading="lazy"
           />
           <Carousel.Caption className="mt-5">
             <h1>Anime Recommendations</h1>
@@ -31,6 +32,7 @@ function Hero() {
             className="d-block w-100"
             src={slime}
             alt="Reincarnated as a slime image"
+            loading="lazy"
           />
           <Carousel.Caption className="mt-8">
             <h1>Browse Anime</h1>
@@ -41,7 +43,12 @@ function Hero() {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img className="d-block w-100" src={onePiece} alt="One Piece image" />
+          <img
+            className="d-block w-100"
+            src={onePiece}
+            alt="One Piece image"
+            loading="lazy"
+          />
           <Carousel.Caption className="mt-8">
             <h1>Sign Up</h1>
             <p>
